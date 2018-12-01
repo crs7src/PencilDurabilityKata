@@ -2,3 +2,5 @@ cmake*
 *.txt
 *.xml
 .idea/
+*.py
+lib
