@@ -15,6 +15,8 @@ public:
     Pencil(std::string, int toughness);
     //create pencil with no toughness specified
     Pencil(int toughness);
+    //create a pencil with nothing specified
+    Pencil();
     //write the first string onto the end of the second string
     std::string write(std::string str, std::string paper);
     //sharpen the pencil to refresh the point toughness

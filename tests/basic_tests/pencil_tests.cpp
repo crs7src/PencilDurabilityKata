@@ -5,7 +5,7 @@
 #include "../../Pencil.h"
 
 TEST(pencil_test, test_creating_pencil){
-    Pencil p1 = new Pencil();
+    Pencil p1 = Pencil();
     EXPECT_TRUE(&p1 != NULL);
 }
 
