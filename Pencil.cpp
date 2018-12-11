@@ -4,6 +4,14 @@
 #include "Pencil.h"
 
 Pencil::Pencil(){}
+Pencil::Pencil(bool part, int toughness){
+    if(part){
+        eraser=toughness;
+    }
+    else{
+        tip=toughness;
+    }
+}
 
 int Pencil::getTip() const {
     return tip;
