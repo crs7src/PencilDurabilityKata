@@ -26,6 +26,8 @@ public:
     //if an erase was made then add the str where the erase happened
     std::string edit(std::string);
 
+    int getTip() const;
+
 private:
     //damage the tip of the pencil based on the amount written
     void pointDegredation(std::string str);
