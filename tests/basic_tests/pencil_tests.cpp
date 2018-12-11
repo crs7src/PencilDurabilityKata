@@ -3,6 +3,7 @@
 //
 #include "gtest/gtest.h"
 #include "../../Pencil.h"
+#include <stdio.h>
 
 TEST(pencil_test, test_creating_pencil){
     Pencil p1 = Pencil();
@@ -15,4 +16,16 @@ TEST(pencil_test, test_that_created_pencil_has_tip_toughness){
 TEST(pencil_test, test_that_created_pencil_has_eraser_toughness){
     Pencil pl = Pencil();
     EXPECT_TRUE(pl.getEraser()>0);
+}
+TEST(pencil_test, test_creating_pencil_with_set_tip){
+    int tip = 5000;
+    bool part = 0;
+    Pencil pl = Pencil(part, tip);
+    EXPECT_TRUE(pl.getTip()==tip);
+}
+TEST(pencil_test, test_creating_pencil_with_set_eraser){
+    int eraser = 10000;
+    bool part = 1;
+    Pencil pl = Pencil(part, eraser);
+    EXPECT_TRUE(pl.getEraser()==eraser);
 }

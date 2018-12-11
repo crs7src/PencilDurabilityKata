@@ -11,8 +11,8 @@ class Pencil {
 public:
     //create pencil with specific toughnesses
     Pencil(int pointToughness, int eraserToughness);
-    //create pencil with either point or eraser toughness specified
-    Pencil(std::string, int toughness);
+    //create pencil with either point or eraser toughness specified(part=0, tip|part=1, eraser)
+    Pencil(bool part, int toughness);
     //create pencil with no toughness specified
     Pencil(int toughness);
     //create a pencil with nothing specified
