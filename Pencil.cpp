@@ -14,6 +14,11 @@ Pencil::Pencil(bool part, int toughness){
     }
 }
 
+Pencil::Pencil(int tipToughness, int eraserToughness){
+    tip=tipToughness;
+    eraser=eraserToughness;
+}
+
 int Pencil::getTip() const {
     return tip;
 }
