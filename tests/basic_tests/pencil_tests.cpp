@@ -23,9 +23,16 @@ TEST(pencil_test, test_creating_pencil_with_set_tip){
     Pencil pl = Pencil(part, tip);
     EXPECT_TRUE(pl.getTip()==tip);
 }
-TEST(pencil_test, test_creating_pencil_with_set_eraser){
+TEST(pencil_test, test_creating_pencil_with_set_eraser) {
     int eraser = 10000;
     bool part = 1;
     Pencil pl = Pencil(part, eraser);
+    EXPECT_TRUE(pl.getEraser() == eraser);
+}
+TEST(pencil_test, test_creating_pencil_with_set_tip_and_eraser){
+    int eraser = 10000;
+    int tip = 5000;
+    Pencil pl = Pencil(tip, eraser);
     EXPECT_TRUE(pl.getEraser()==eraser);
+    EXPECT_TRUE(pl.getTip()==tip);
 }
