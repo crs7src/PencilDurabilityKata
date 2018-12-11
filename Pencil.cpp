@@ -5,3 +5,11 @@
 
 Pencil::Pencil(){}
 
+int Pencil::getTip() const {
+    return tip;
+}
+
+int Pencil::getEraser() const {
+    return eraser;
+}
+

@@ -28,6 +28,8 @@ public:
 
     int getTip() const;
 
+    int getEraser() const;
+
 private:
     //damage the tip of the pencil based on the amount written
     void pointDegredation(std::string str);
