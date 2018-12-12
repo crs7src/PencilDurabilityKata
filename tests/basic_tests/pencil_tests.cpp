@@ -35,6 +35,22 @@ TEST(pencil_test, test_creating_pencil_with_set_tip_and_eraser){
     EXPECT_TRUE(pl.getEraser()==eraser);
     EXPECT_TRUE(pl.getTip()==tip);
 }
+TEST(pencil_test, test_sharpening_pencil){
+    Pencil p1 = Pencil();
+    Pencil p2 = Pencil(0, 200);
+    std::string paper = "";
+    std::string text = "test";
+    std::string text2 = " sharpening";
+    //tip should degrade on characters
+    paper = p1.write(text, paper);
+    paper = p2.write(text2, paper)
+    EXPECT_EQ(p1.getTip(), 96);
+    EXPECT_EQ(p1.getTip(), 90);
+    p1.sharpen();
+    p2.sharpen();
+    EXPECT_EQ(p1.getTip(), 100);
+    EXPECT_EQ(p2.getTip(), 200);
+}
 TEST(write_test, test_writing_to_paper){
     Pencil p1 = Pencil();
     Pencil p2 = Pencil();
