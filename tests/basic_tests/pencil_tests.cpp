@@ -155,3 +155,9 @@ TEST_F(edit_test, test_erasing_word_should_reduce_eraser_toughness){
     p1.erase("chuck", "How much wood would a woodchuck chuck if a woodchuck could chuck wood?");
     EXPECT_EQ(eraserStart-5, p1.getEraser());
 }
+TEST_F(edit_test, test_erasing_space_should_not_reduce_eraser_toughness){
+    int eraserStart = p1.getEraser();
+    std::string paper = p1.erase("chuck if", "How much wood would a woodchuck chuck if a woodchuck could chuck wood?");
+    EXPECT_EQ(paper, "How much wood would a woodchuck          a woodchuck could chuck wood?");
+    EXPECT_EQ(eraserStart-7, p1.getEraser());
+}
