@@ -9,7 +9,6 @@ protected:
     Pencil p1 = Pencil();
     Pencil p2 = Pencil(200, 200);
 };
-
 TEST_F(pencil_test, test_creating_pencil){
     Pencil pencil = Pencil();
     EXPECT_TRUE(&pencil != NULL);
@@ -39,6 +38,27 @@ TEST_F(pencil_test, test_creating_pencil_with_set_tip_and_eraser){
     EXPECT_EQ(p2.getTip(),200);
 }
 TEST_F(pencil_test, test_sharpening_pencil){
+    std::string paper = "";
+    std::string text = "test";
+    std::string text2 = " sharpening";
+    //tip should degrade on characters
+    paper = p1.write(text, paper);
+    paper = p2.write(text2, paper);
+    EXPECT_EQ(p1.getTip(), 96);
+    EXPECT_EQ(p2.getTip(), 190);
+    p1.sharpen();
+    p2.sharpen();
+    EXPECT_EQ(p1.getTip(), 100);
+    EXPECT_EQ(p2.getTip(), 200);
+}
+TEST_F(pencil_test, test_creating_pencil_with_set_length){
+    //tip should degrade on characters
+    Pencil pencil = Pencil(200, 200, 200);
+    Pencil pencil2 = Pencil();
+    EXPECT_EQ(pencil.getLength(), 200);
+    EXPECT_TRUE(pencil2.getTip()>0);
+}
+TEST_F(pencil_test, test_sharpening_pencil_reduces_length){
     std::string paper = "";
     std::string text = "test";
     std::string text2 = " sharpening";

@@ -7,23 +7,23 @@
 
 //create pencil with nothing specified
 Pencil::Pencil(){
-    tip=100;
-    eraser=100;
+    tip = maxTip = 100;
+    eraser = 100;
 }
 //create pencil with either point or eraser toughness specified(part=0, tip|part=1, eraser)
 Pencil::Pencil(bool part, int toughness){
     if(part){
-        eraser=toughness;
+        eraser = toughness;
         tip = maxTip = 100;
     }
     else{
-        tip = maxTip =toughness;
+        tip = maxTip = toughness;
         eraser = 100;
     }
 }
 //create pencil with specified toughnesses
 Pencil::Pencil(int tipToughness, int eraserToughness){
-    tip=tipToughness;
+    tip = maxTip = tipToughness;
     eraser=eraserToughness;
 }
 //write a string onto the paper
