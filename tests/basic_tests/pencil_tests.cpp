@@ -44,7 +44,13 @@ TEST(write_test, test_writing_to_paper){
     std::string text2 = "test2";
     paper = p1.write(text, paper);
     paper2 = p2.write(text2, paper2);
-    std::cout<<p1.write("test", "");
     EXPECT_EQ(paper, text);
     EXPECT_EQ(paper2, text2);
+}
+TEST(write_test, test_adding_to_paper_that_isnt_blank){
+    Pencil p1 = Pencil();
+    std::string paper = "test";
+    std::string text = " number 3";
+    paper = p1.write(text, paper);
+    EXPECT_EQ(paper, "test number 3");
 }
