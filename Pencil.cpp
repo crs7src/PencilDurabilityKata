@@ -22,7 +22,8 @@ std::string Pencil::write(std::string str, std::string paper){
     }
     return paper.append(str);
 }
-
+//sets the tip toughness back to the state it was at when the pencil was created
+//reduces the length of the pencil by one
 void Pencil::sharpen() {
     if(length) {
         length--;
@@ -30,8 +31,11 @@ void Pencil::sharpen() {
     }
 }
 
+//erases the last instance of the input str
 std::string Pencil::erase(std::string str, std::string paper){
-    return NULL;
+    std::size_t last_instance = paper.rfind(str);
+    paper.replace(last_instance, str.length(), std::string(str.length(), ' '));
+    return paper;
 }
 
 int Pencil::getTip() const {
