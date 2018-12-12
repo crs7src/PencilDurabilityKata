@@ -49,7 +49,9 @@ std::string Pencil::erase(std::string str, std::string paper){
 }
 
 std::string Pencil::edit(std::string str, std::string paper){
-    return "";
+    std::size_t empty_space = paper.find("   ");
+    paper.replace(empty_space+1, str.length(), str);
+    return paper;
 }
 
 int Pencil::getTip() const {
