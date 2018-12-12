@@ -79,6 +79,7 @@ TEST_F(pencil_test, test_sharpening_when_when_length_is_zero_does_not_reset_tip)
     pencil.sharpen();
     EXPECT_EQ(pencil.getTip(), 96);
 }
+
 TEST(write_test, test_writing_to_paper){
     Pencil p1 = Pencil();
     Pencil p2 = Pencil();
@@ -129,4 +130,16 @@ TEST(write_test, test_pencil_should_lose_2_tip_toughness_from_capital_letters){
     EXPECT_EQ(98, p1.getTip());
     paper = p1.write(text2, paper);
     EXPECT_EQ(90, p1.getTip());
+}
+
+class edit_test : public ::testing::Test{
+protected:
+    Pencil p1;
+};
+
+TEST_F(edit_test, test_erasing_last_instance_of_a_word){
+    std::string paper = p1.erase("chuck", "How much wood would a woodchuck chuck if a woodchuck could chuck wood?");
+    EXPECT_EQ(paper, "How much wood would a woodchuck chuck if a woodchuck could       wood?");
+    paper = p1.erase("chuck", paper);
+    EXPECT_EQ(paper, "How much wood would a woodchuck chuck if a wood      could       wood?");
 }

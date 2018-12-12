@@ -30,6 +30,10 @@ void Pencil::sharpen() {
     }
 }
 
+std::string Pencil::erase(std::string str, std::string paper){
+    return NULL;
+}
+
 int Pencil::getTip() const {
     return tip;
 }
