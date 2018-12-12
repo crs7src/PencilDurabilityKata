@@ -36,7 +36,7 @@ std::string Pencil::erase(std::string str, std::string paper){
     std::size_t last_instance = paper.rfind(str);
     if(last_instance!=std::string::npos) {
         paper.replace(last_instance, str.length(), std::string(str.length(), ' '));
-        eraser -= str.length();
+        eraserDegradation(str);
     }
     return paper;
 }
@@ -53,7 +53,7 @@ int Pencil::getEraser() const {
     return eraser;
 }
 
-//reduce the durability of the pencil based on the input string
+//reduce the durability of the pencil tip based on the input string
 //remove one from "tip" for every non-whitespace character
 //remove two from "tip" for every capital letter
 void Pencil::pointDegradation(std::string str){
@@ -68,6 +68,18 @@ void Pencil::pointDegradation(std::string str){
         }
     }
     tip-=(str.length()-whitespace+caps);
+}
+
+//reduce the durability of the pencil eraser based on the input string
+//remove one from "eraser" for every non-whitespace character
+void Pencil::eraserDegradation(std::string str){
+    int whitespace = 0;
+    for (int i = 0; i < str.length(); ++i) {
+        if(std::isspace(str.at(i))){
+            whitespace++;
+        }
+    }
+    eraser-=(str.length()-whitespace);
 }
 
 
