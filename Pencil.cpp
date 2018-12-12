@@ -24,6 +24,7 @@ std::string Pencil::write(std::string str, std::string paper){
 }
 
 void Pencil::sharpen() {
+    length--;
     tip = maxTip;
 }
 
