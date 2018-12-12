@@ -54,3 +54,13 @@ TEST(write_test, test_adding_to_paper_that_isnt_blank){
     paper = p1.write(text, paper);
     EXPECT_EQ(paper, "test number 3");
 }
+TEST(write_test, test_point_degredation_on_writing){
+    Pencil p1 = Pencil();
+    std::string paper = "";
+    std::string text = "test";
+    std::string text2 = " degradation";
+    paper = p1.write(text, paper);
+    EXPECT_EQ(p1.getTip(), 96);
+    paper = p1.write(text, paper);
+    EXPECT_EQ(p1.getTip(), 85);
+}
