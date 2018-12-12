@@ -4,48 +4,49 @@
 #include "gtest/gtest.h"
 #include "../../Pencil.h"
 
-TEST(pencil_test, test_creating_pencil){
+class pencil_test : public ::testing::Test{
+protected:
     Pencil p1 = Pencil();
-    EXPECT_TRUE(&p1 != NULL);
+    Pencil p2 = Pencil(200, 200);
+};
+
+TEST_F(pencil_test, test_creating_pencil){
+    Pencil pencil = Pencil();
+    EXPECT_TRUE(&pencil != NULL);
 }
-TEST(pencil_test, test_that_created_pencil_has_tip_toughness){
-    Pencil pl = Pencil();
-    EXPECT_TRUE(pl.getTip()>0);
+TEST_F(pencil_test, test_that_created_pencil_has_tip_toughness){
+    Pencil pencil = Pencil();
+    EXPECT_TRUE(pencil.getTip()>0);
 }
-TEST(pencil_test, test_that_created_pencil_has_eraser_toughness){
-    Pencil pl = Pencil();
-    EXPECT_TRUE(pl.getEraser()>0);
+TEST_F(pencil_test, test_that_created_pencil_has_eraser_toughness){
+    Pencil pencil = Pencil();
+    EXPECT_TRUE(pencil.getEraser()>0);
 }
-TEST(pencil_test, test_creating_pencil_with_set_tip){
+TEST_F(pencil_test, test_creating_pencil_with_set_tip){
     int tip = 5000;
     bool part = 0;
-    Pencil pl = Pencil(part, tip);
-    EXPECT_TRUE(pl.getTip()==tip);
+    Pencil pencil = Pencil(part, tip);
+    EXPECT_TRUE(pencil.getTip()==tip);
 }
-TEST(pencil_test, test_creating_pencil_with_set_eraser) {
-    int eraser = 10000;
+TEST_F(pencil_test, test_creating_pencil_with_set_eraser) {
     bool part = 1;
-    Pencil pl = Pencil(part, eraser);
-    EXPECT_TRUE(pl.getEraser() == eraser);
+    int eraser = 100;
+    Pencil pencil = Pencil(part, eraser);
+    EXPECT_TRUE(pencil.getEraser() == eraser);
 }
-TEST(pencil_test, test_creating_pencil_with_set_tip_and_eraser){
-    int eraser = 10000;
-    int tip = 5000;
-    Pencil pl = Pencil(tip, eraser);
-    EXPECT_TRUE(pl.getEraser()==eraser);
-    EXPECT_TRUE(pl.getTip()==tip);
+TEST_F(pencil_test, test_creating_pencil_with_set_tip_and_eraser){
+    EXPECT_EQ(p2.getEraser(),200);
+    EXPECT_EQ(p2.getTip(),200);
 }
-TEST(pencil_test, test_sharpening_pencil){
-    Pencil p1 = Pencil();
-    Pencil p2 = Pencil(0, 200);
+TEST_F(pencil_test, test_sharpening_pencil){
     std::string paper = "";
     std::string text = "test";
     std::string text2 = " sharpening";
     //tip should degrade on characters
     paper = p1.write(text, paper);
-    paper = p2.write(text2, paper)
+    paper = p2.write(text2, paper);
     EXPECT_EQ(p1.getTip(), 96);
-    EXPECT_EQ(p1.getTip(), 90);
+    EXPECT_EQ(p2.getTip(), 190);
     p1.sharpen();
     p2.sharpen();
     EXPECT_EQ(p1.getTip(), 100);

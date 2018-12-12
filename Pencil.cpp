@@ -14,10 +14,10 @@ Pencil::Pencil(){
 Pencil::Pencil(bool part, int toughness){
     if(part){
         eraser=toughness;
-        tip = 100;
+        tip = maxTip = 100;
     }
     else{
-        tip=toughness;
+        tip = maxTip =toughness;
         eraser = 100;
     }
 }
@@ -37,6 +37,10 @@ std::string Pencil::write(std::string str, std::string paper){
         return paper;
     }
     return paper.append(str);
+}
+
+void Pencil::sharpen() {
+    tip = maxTip;
 }
 
 int Pencil::getTip() const {
