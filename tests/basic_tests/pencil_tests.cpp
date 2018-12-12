@@ -6,8 +6,8 @@
 
 class pencil_test : public ::testing::Test{
 protected:
-    Pencil p1 = Pencil();
-    Pencil p2 = Pencil(200, 200);
+    Pencil p1;
+    Pencil p2 = Pencil(200, 200, 200);
 };
 TEST_F(pencil_test, test_creating_pencil){
     Pencil pencil = Pencil();
@@ -17,25 +17,10 @@ TEST_F(pencil_test, test_that_created_pencil_has_tip_toughness){
     Pencil pencil = Pencil();
     EXPECT_TRUE(pencil.getTip()>0);
 }
-TEST_F(pencil_test, test_that_created_pencil_has_eraser_toughness){
-    Pencil pencil = Pencil();
-    EXPECT_TRUE(pencil.getEraser()>0);
-}
-TEST_F(pencil_test, test_creating_pencil_with_set_tip){
-    int tip = 5000;
-    bool part = 0;
-    Pencil pencil = Pencil(part, tip);
-    EXPECT_TRUE(pencil.getTip()==tip);
-}
-TEST_F(pencil_test, test_creating_pencil_with_set_eraser) {
-    bool part = 1;
-    int eraser = 100;
-    Pencil pencil = Pencil(part, eraser);
-    EXPECT_TRUE(pencil.getEraser() == eraser);
-}
-TEST_F(pencil_test, test_creating_pencil_with_set_tip_and_eraser){
+TEST_F(pencil_test, test_creating_pencil_with_set_tip_eraser_and_length){
     EXPECT_EQ(p2.getEraser(),200);
     EXPECT_EQ(p2.getTip(),200);
+    EXPECT_EQ(p2.getLength(),200);
 }
 TEST_F(pencil_test, test_sharpening_pencil){
     std::string paper = "";

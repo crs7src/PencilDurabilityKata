@@ -4,27 +4,11 @@
 #include <afxres.h>
 #include "Pencil.h"
 
-
-//create pencil with nothing specified
-Pencil::Pencil(){
-    tip = maxTip = 100;
-    eraser = 100;
-}
-//create pencil with either point or eraser toughness specified(part=0, tip|part=1, eraser)
-Pencil::Pencil(bool part, int toughness){
-    if(part){
-        eraser = toughness;
-        tip = maxTip = 100;
-    }
-    else{
-        tip = maxTip = toughness;
-        eraser = 100;
-    }
-}
-//create pencil with specified toughnesses
-Pencil::Pencil(int tipToughness, int eraserToughness){
+//create pencil with specified toughnesses and length
+Pencil::Pencil(int tipToughness, int eraserToughness, int pencilLength){
     tip = maxTip = tipToughness;
-    eraser=eraserToughness;
+    eraser = eraserToughness;
+    length = pencilLength;
 }
 //write a string onto the paper
 //append the string onto the paper and degrade the pencil
@@ -47,9 +31,14 @@ int Pencil::getTip() const {
     return tip;
 }
 
+int Pencil::getLength() const {
+    return length;
+}
+
 int Pencil::getEraser() const {
     return eraser;
 }
+
 //reduce the durability of the pencil based on the input string
 //remove one from "tip" for every non-whitespace character
 //remove two from "tip" for every capital letter
@@ -66,3 +55,5 @@ void Pencil::pointDegradation(std::string str){
     }
     tip-=(str.length()-whitespace+caps);
 }
+
+

@@ -10,12 +10,8 @@
 class Pencil {
 
 public:
-    //create pencil with specific toughnesses
-    Pencil(int pointToughness, int eraserToughness);
-    //create pencil with either point or eraser toughness specified(part=0, tip|part=1, eraser)
-    Pencil(bool part, int toughness);
-    //create a pencil with nothing specified
-    Pencil();
+    //create pencil with specific toughnesses and length
+    Pencil(int pointToughness = 100, int eraserToughness = 100, int pencilLength = 100);
     //write the first string onto the end of the second string
     std::string write(std::string str, std::string paper);
     //sharpen the pencil to refresh the point toughness
@@ -27,6 +23,8 @@ public:
 
     int getTip() const;
 
+    int getLength() const;
+
     int getEraser() const;
 
 private:
@@ -37,6 +35,7 @@ private:
     int tip;
     int maxTip;
     int eraser;
+    int length;
 };
 
 
