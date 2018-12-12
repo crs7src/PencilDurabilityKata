@@ -12,9 +12,11 @@ Pencil::Pencil(){
 Pencil::Pencil(bool part, int toughness){
     if(part){
         eraser=toughness;
+        tip = 100;
     }
     else{
         tip=toughness;
+        eraser = 100;
     }
 }
 //create pencil with specified toughnesses

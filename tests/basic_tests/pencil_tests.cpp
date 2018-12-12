@@ -66,3 +66,12 @@ TEST(write_test, test_point_degredation_on_writing) {
     paper = p1.write(text2, paper);
     EXPECT_EQ(p1.getTip(), 85);
 }
+TEST(write_test, test_pencil_should_not_write_if_toughness_is_0){
+    Pencil p1 = Pencil(0, 4);
+    std::string paper = "";
+    std::string text = "test";
+    paper = p1.write(text, paper);
+    EXPECT_EQ(paper, text);
+    paper = p1.write(text, paper);
+    EXPECT_EQ(paper, text);
+}
