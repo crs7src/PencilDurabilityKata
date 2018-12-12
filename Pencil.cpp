@@ -48,12 +48,17 @@ int Pencil::getEraser() const {
 }
 //reduce the durability of the pencil based on the input string
 //remove one from "tip" for every non-whitespace character
+//remove two from "tip" for every capital letter
 void Pencil::pointDegradation(std::string str){
     int whitespace = 0;
+    int caps = 0;
     for (int i = 0; i < str.length(); ++i) {
         if(std::isspace(str.at(i))){
             whitespace++;
         }
+        if(std::isupper(str.at(i))){
+            caps++;
+        }
     }
-    tip-=(str.length()-whitespace);
+    tip-=(str.length()-whitespace+caps);
 }
