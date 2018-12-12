@@ -13,8 +13,6 @@ public:
     Pencil(int pointToughness, int eraserToughness);
     //create pencil with either point or eraser toughness specified(part=0, tip|part=1, eraser)
     Pencil(bool part, int toughness);
-    //create pencil with no toughness specified
-    Pencil(int toughness);
     //create a pencil with nothing specified
     Pencil();
     //write the first string onto the end of the second string
@@ -32,7 +30,7 @@ public:
 
 private:
     //damage the tip of the pencil based on the amount written
-    void pointDegredation(std::string str);
+    void pointDegradation(std::string str);
     //damage the eraser of the pencil based on the amount erased
     void eraserDegradation(std::string str);
     int tip;

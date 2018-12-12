@@ -54,13 +54,15 @@ TEST(write_test, test_adding_to_paper_that_isnt_blank){
     paper = p1.write(text, paper);
     EXPECT_EQ(paper, "test number 3");
 }
-TEST(write_test, test_point_degredation_on_writing){
+TEST(write_test, test_point_degredation_on_writing) {
     Pencil p1 = Pencil();
     std::string paper = "";
     std::string text = "test";
     std::string text2 = " degradation";
+    //tip should degrade on characters
     paper = p1.write(text, paper);
     EXPECT_EQ(p1.getTip(), 96);
-    paper = p1.write(text, paper);
+    //tip should not degrade on whitespace
+    paper = p1.write(text2, paper);
     EXPECT_EQ(p1.getTip(), 85);
 }
