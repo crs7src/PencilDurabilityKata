@@ -3,6 +3,7 @@
 //
 #include "Pencil.h"
 
+
 //create pencil with nothing specified
 Pencil::Pencil(){
     tip=100;
@@ -28,6 +29,11 @@ Pencil::Pencil(int tipToughness, int eraserToughness){
 //append the string onto the paper and degrade the pencil
 std::string Pencil::write(std::string str, std::string paper){
     pointDegradation(str);
+    if(tip < 0){
+        paper.append(str, 0, str.length()+tip);
+        tip = 0;
+        return paper;
+    }
     return paper.append(str);
 }
 
