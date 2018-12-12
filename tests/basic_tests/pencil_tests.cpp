@@ -57,6 +57,28 @@ TEST_F(pencil_test, test_sharpening_pencil_reduces_length){
     EXPECT_EQ(p1.getLength(), 99);
     EXPECT_EQ(p2.getLength(), 199);
 }
+TEST_F(pencil_test, test_sharpening_pencil_cannot_reduce_length_below_zero){
+    Pencil pencil = Pencil(100, 100, 1);
+    std::string paper = "";
+    std::string text = "test";
+    paper = pencil.write(text, paper);
+    pencil.sharpen();
+    paper = pencil.write(text, paper);
+    EXPECT_EQ(pencil.getLength(), 0);
+    pencil.sharpen();
+    EXPECT_EQ(pencil.getLength(), 0);
+}
+TEST_F(pencil_test, test_sharpening_when_when_length_is_zero_does_not_reset_tip){
+    Pencil pencil = Pencil(100, 100, 1);
+    std::string paper = "";
+    std::string text = "test";
+    paper = pencil.write(text, paper);
+    pencil.sharpen();
+    paper = pencil.write(text, paper);
+    EXPECT_EQ(pencil.getTip(), 96);
+    pencil.sharpen();
+    EXPECT_EQ(pencil.getTip(), 96);
+}
 TEST(write_test, test_writing_to_paper){
     Pencil p1 = Pencil();
     Pencil p2 = Pencil();
