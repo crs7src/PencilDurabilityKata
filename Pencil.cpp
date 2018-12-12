@@ -3,7 +3,10 @@
 //
 #include "Pencil.h"
 
-Pencil::Pencil(){}
+Pencil::Pencil(){
+    tip=100;
+    eraser=100;
+}
 
 Pencil::Pencil(bool part, int toughness){
     if(part){

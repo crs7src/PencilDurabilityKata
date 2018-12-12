@@ -3,7 +3,6 @@
 //
 #include "gtest/gtest.h"
 #include "../../Pencil.h"
-#include <stdio.h>
 
 TEST(pencil_test, test_creating_pencil){
     Pencil p1 = Pencil();
@@ -35,4 +34,16 @@ TEST(pencil_test, test_creating_pencil_with_set_tip_and_eraser){
     Pencil pl = Pencil(tip, eraser);
     EXPECT_TRUE(pl.getEraser()==eraser);
     EXPECT_TRUE(pl.getTip()==tip);
+}
+TEST(write_test, test_writing_to_paper){
+    Pencil p1 = Pencil();
+    Pencil p2 = Pencil();
+    std::string paper = "";
+    std::string text = "test";
+    std::string paper2 = "";
+    std::string text2 = "test2";
+    paper = p1.write(text, paper);
+    paper2 = p2.write(text2, paper2);
+    EXPECT_TRUE(paper.compare(text));
+    EXPECT_TRUE(paper2.compare(text2));
 }
