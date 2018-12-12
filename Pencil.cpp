@@ -34,7 +34,9 @@ void Pencil::sharpen() {
 //erases the last instance of the input str
 std::string Pencil::erase(std::string str, std::string paper){
     std::size_t last_instance = paper.rfind(str);
-    paper.replace(last_instance, str.length(), std::string(str.length(), ' '));
+    if(last_instance!=std::string::npos) {
+        paper.replace(last_instance, str.length(), std::string(str.length(), ' '));
+    }
     return paper;
 }
 
