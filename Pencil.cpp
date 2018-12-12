@@ -24,8 +24,10 @@ std::string Pencil::write(std::string str, std::string paper){
 }
 
 void Pencil::sharpen() {
-    length--;
-    tip = maxTip;
+    if(length) {
+        length--;
+        tip = maxTip;
+    }
 }
 
 int Pencil::getTip() const {
