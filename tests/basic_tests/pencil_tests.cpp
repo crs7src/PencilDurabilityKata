@@ -143,3 +143,7 @@ TEST_F(edit_test, test_erasing_last_instance_of_a_word){
     paper = p1.erase("chuck", paper);
     EXPECT_EQ(paper, "How much wood would a woodchuck chuck if a wood      could       wood?");
 }
+TEST_F(edit_test, test_erasing_word_that_isnt_on_paper){
+    std::string paper = p1.erase("the", "How much wood would a woodchuck chuck if a woodchuck could chuck wood?");
+    EXPECT_EQ(paper, "How much wood would a woodchuck chuck if a woodchuck could chuck wood?");
+}
