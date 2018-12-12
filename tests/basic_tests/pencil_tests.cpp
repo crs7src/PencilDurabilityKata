@@ -161,3 +161,13 @@ TEST_F(edit_test, test_erasing_space_should_not_reduce_eraser_toughness){
     EXPECT_EQ(paper, "How much wood would a woodchuck          a woodchuck could chuck wood?");
     EXPECT_EQ(eraserStart-7, p1.getEraser());
 }
+TEST_F(edit_test, test_erasing_at_zero_eraser_toughness_should_do_nothing){
+    Pencil pencil = Pencil(100, 0, 100);
+    std::string paper = pencil.erase("Bill", "Buffalo Bill");
+    EXPECT_EQ(paper, "Buffalo Bill");
+}
+TEST_F(edit_test, test_erasing_should_go_right_to_left_and_stop_when_eraser_hits_zero){
+    Pencil pencil = Pencil(100, 3, 100);
+    std::string paper = pencil.erase("Bill", "Buffalo Bill");
+    EXPECT_EQ(paper, "Buffalo B   ");
+}
