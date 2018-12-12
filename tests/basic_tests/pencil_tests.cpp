@@ -50,12 +50,12 @@ TEST_F(pencil_test, test_sharpening_pencil_reduces_length){
     //tip should degrade on characters
     paper = p1.write(text, paper);
     paper = p2.write(text2, paper);
-    EXPECT_EQ(p1.getTip(), 96);
-    EXPECT_EQ(p2.getTip(), 190);
+    EXPECT_EQ(p1.getLength(), 100);
+    EXPECT_EQ(p2.getLength(), 200);
     p1.sharpen();
     p2.sharpen();
-    EXPECT_EQ(p1.getTip(), 100);
-    EXPECT_EQ(p2.getTip(), 200);
+    EXPECT_EQ(p1.getLength(), 99);
+    EXPECT_EQ(p2.getLength(), 199);
 }
 TEST(write_test, test_writing_to_paper){
     Pencil p1 = Pencil();
