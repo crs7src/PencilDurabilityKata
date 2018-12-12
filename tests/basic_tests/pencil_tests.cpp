@@ -74,5 +74,15 @@ TEST(write_test, test_pencil_should_not_write_if_toughness_is_0){
     paper = p1.write(text, paper);
     EXPECT_EQ(paper, text);
     paper = p1.write(text, paper);
-    EXPECT_EQ(paper, text);
+    EXPECT_EQ(paper, "test    ");
+}
+TEST(write_test, test_pencil_should_lose_2_tip_toughness_from_capital_letters){
+    Pencil p1 = Pencil();
+    std::string paper = "";
+    std::string text = "T";
+    std::string text2 = "TEST";
+    paper = p1.write(text, paper);
+    EXPECT_EQ(98, p1.getTip());
+    paper = p1.write(text2, paper);
+    EXPECT_EQ(90, p1.getTip());
 }

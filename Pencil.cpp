@@ -1,6 +1,7 @@
 //
 // Created by Caleb Smith on 12/1/2018.
 //
+#include <afxres.h>
 #include "Pencil.h"
 
 
@@ -31,6 +32,7 @@ std::string Pencil::write(std::string str, std::string paper){
     pointDegradation(str);
     if(tip < 0){
         paper.append(str, 0, str.length()+tip);
+        paper.append(-tip, ' ');
         tip = 0;
         return paper;
     }
