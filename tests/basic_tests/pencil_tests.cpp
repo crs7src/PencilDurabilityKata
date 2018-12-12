@@ -177,3 +177,7 @@ TEST_F(edit_test, test_erasing_apple_and_replacing_with_onion){
     paper = p1.edit("onion", paper);
     EXPECT_EQ(paper, "an onion a day keeps the doctor away");
 }
+//TODO: create tests for:
+//degrading tip
+//overwriting characters
+//if there is no blank space
