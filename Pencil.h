@@ -19,7 +19,7 @@ public:
     //erase the rightmost instance of the input str from the paper
     std::string erase(std::string str, std::string paper);
     //if an erase was made then add the str where the erase happened
-    std::string edit(std::string);
+    std::string edit(std::string str, std::string paper);
 
     int getTip() const;
 

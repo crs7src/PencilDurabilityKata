@@ -171,3 +171,9 @@ TEST_F(edit_test, test_erasing_should_go_right_to_left_and_stop_when_eraser_hits
     std::string paper = pencil.erase("Bill", "Buffalo Bill");
     EXPECT_EQ(paper, "Buffalo B   ");
 }
+TEST_F(edit_test, test_erasing_apple_and_replacing_with_onion){
+    std::string paper = p1.erase("apple", "an apple a day keeps the doctor away");
+    EXPECT_EQ(paper, "an       a day keeps the doctor away");
+    paper = p1.edit("onion", paper);
+    EXPECT_EQ(paper, "an onion a day keeps the doctor away");
+}

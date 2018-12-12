@@ -40,12 +40,16 @@ std::string Pencil::erase(std::string str, std::string paper){
         if(eraser > 0) {
             paper.replace(last_instance, str.length(), std::string(str.length(), ' '));
         }
-        else{
-            paper.replace(last_instance-eraser, str.length()+eraser, std::string(str.length()+eraser, ' '));
+        else {
+            paper.replace(last_instance - eraser, str.length() + eraser, std::string(str.length() + eraser, ' '));
+            eraser = 0;
         }
-        eraser = 0;
     }
     return paper;
+}
+
+std::string Pencil::edit(std::string str, std::string paper){
+    return "";
 }
 
 int Pencil::getTip() const {
