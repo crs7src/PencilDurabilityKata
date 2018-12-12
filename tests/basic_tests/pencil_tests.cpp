@@ -44,6 +44,7 @@ TEST(write_test, test_writing_to_paper){
     std::string text2 = "test2";
     paper = p1.write(text, paper);
     paper2 = p2.write(text2, paper2);
-    EXPECT_TRUE(paper.compare(text));
-    EXPECT_TRUE(paper2.compare(text2));
+    std::cout<<p1.write("test", "");
+    EXPECT_EQ(paper, text);
+    EXPECT_EQ(paper2, text2);
 }

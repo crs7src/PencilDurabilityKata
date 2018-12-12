@@ -22,6 +22,10 @@ Pencil::Pencil(int tipToughness, int eraserToughness){
     eraser=eraserToughness;
 }
 
+std::string Pencil::write(std::string str, std::string paper){
+    return str;
+}
+
 int Pencil::getTip() const {
     return tip;
 }
