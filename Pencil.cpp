@@ -31,12 +31,19 @@ void Pencil::sharpen() {
     }
 }
 
-//erases the last instance of the input str
+//erases the last instance of the input str on the paper
+//it erases right to left and if the eraser hits zero then it stops
 std::string Pencil::erase(std::string str, std::string paper){
     std::size_t last_instance = paper.rfind(str);
     if(last_instance!=std::string::npos) {
-        paper.replace(last_instance, str.length(), std::string(str.length(), ' '));
         eraserDegradation(str);
+        if(eraser > 0) {
+            paper.replace(last_instance, str.length(), std::string(str.length(), ' '));
+        }
+        else{
+            paper.replace(last_instance-eraser, str.length()+eraser, std::string(str.length()+eraser, ' '));
+        }
+        eraser = 0;
     }
     return paper;
 }
