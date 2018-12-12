@@ -36,6 +36,7 @@ std::string Pencil::erase(std::string str, std::string paper){
     std::size_t last_instance = paper.rfind(str);
     if(last_instance!=std::string::npos) {
         paper.replace(last_instance, str.length(), std::string(str.length(), ' '));
+        eraser -= str.length();
     }
     return paper;
 }

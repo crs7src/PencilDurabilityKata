@@ -153,5 +153,5 @@ TEST_F(edit_test, test_erasing_word_should_reduce_eraser_toughness){
     EXPECT_EQ(eraserStart-1, p1.getEraser());
     eraserStart = p1.getEraser();
     p1.erase("chuck", "How much wood would a woodchuck chuck if a woodchuck could chuck wood?");
-    EXPECT_EQ(eraserStart-4, p1.getEraser());
+    EXPECT_EQ(eraserStart-5, p1.getEraser());
 }
