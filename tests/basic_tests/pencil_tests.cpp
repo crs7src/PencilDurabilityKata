@@ -204,7 +204,14 @@ TEST_F(edit_test, test_editing_in_words_should_do_nothing_if_there_is_no_empty_s
     paper = pencil.edit("onion", paper);
     EXPECT_EQ(paper, "an apple a day keeps the doctor away");
 }
+TEST_F(edit_test, test_editing_in_letters_that_overlap_should_be_filled_with_at_symbols){
+    std::string paper = p1.erase("apple", "an apple a day keeps the doctor away");
+    paper = p1.edit("artichoke", paper);
+    EXPECT_EQ(paper, "an artich@k@ay day keeps the doctor away");
+    paper = p1.erase("random", "a random sentence");
+    paper = p1.edit("randomized", paper);
+    EXPECT_EQ(paper, "a randomi@e@tence");
+}
 //TODO: create tests for:
 //degrading tip
 //overwriting characters
-//if there is no blank space
