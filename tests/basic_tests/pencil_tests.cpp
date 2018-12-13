@@ -177,7 +177,7 @@ TEST_F(edit_test, test_erasing_apple_and_replacing_with_onion){
     paper = p1.edit("onion", paper);
     EXPECT_EQ(paper, "an onion a day keeps the doctor away");
 }
-TEST_F(edit_test, test_erasing_editing_in_words_reduces_tip_toughness){
+TEST_F(edit_test, test_editing_in_words_reduces_tip_toughness){
     std::string paper = p1.erase("apple", "an apple a day keeps the doctor away");
     int startingToughness = p1.getTip();
     paper = p1.edit("onion", paper);
@@ -186,6 +186,17 @@ TEST_F(edit_test, test_erasing_editing_in_words_reduces_tip_toughness){
     startingToughness = p1.getTip();
     paper = p1.edit("year", paper);
     EXPECT_EQ(p1.getTip(), startingToughness-4);
+}
+TEST_F(edit_test, test_editing_in_words_doesnt_work_if_tip_is_dull){
+    Pencil pencil = Pencil(4);
+    std::string paper = pencil.erase("apple", "an apple a day keeps the doctor away");
+    paper = pencil.edit("onion", paper);
+    EXPECT_EQ(pencil.getTip(), 0);
+    EXPECT_EQ(paper, "an onio  a day keeps the doctor away");
+    paper = pencil.erase("day", paper);
+    paper = pencil.edit("year", paper);
+    EXPECT_EQ(pencil.getTip(), 0);
+    EXPECT_EQ(paper, "an onio  a     keeps the doctor away");
 }
 //TODO: create tests for:
 //degrading tip
