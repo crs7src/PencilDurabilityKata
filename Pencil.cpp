@@ -47,7 +47,8 @@ std::string Pencil::erase(std::string str, std::string paper){
     }
     return paper;
 }
-
+//writes new text in an empty segment of text
+//overlaps in text should be @ symbols
 std::string Pencil::edit(std::string str, std::string paper){
     std::size_t empty_space = paper.find("   ");
     paper.replace(empty_space+1, str.length(), str);

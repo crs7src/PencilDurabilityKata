@@ -177,6 +177,16 @@ TEST_F(edit_test, test_erasing_apple_and_replacing_with_onion){
     paper = p1.edit("onion", paper);
     EXPECT_EQ(paper, "an onion a day keeps the doctor away");
 }
+TEST_F(edit_test, test_erasing_editing_in_words_reduces_tip_toughness){
+    std::string paper = p1.erase("apple", "an apple a day keeps the doctor away");
+    int startingToughness = p1.getTip();
+    paper = p1.edit("onion", paper);
+    EXPECT_EQ(p1.getTip(), startingToughness-5);
+    paper = p1.erase("day", "an apple a day keeps the doctor away");
+    startingToughness = p1.getTip();
+    paper = p1.edit("year", paper);
+    EXPECT_EQ(p1.getTip(), startingToughness-4);
+}
 //TODO: create tests for:
 //degrading tip
 //overwriting characters
