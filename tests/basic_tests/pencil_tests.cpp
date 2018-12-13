@@ -198,6 +198,12 @@ TEST_F(edit_test, test_editing_in_words_doesnt_work_if_tip_is_dull){
     EXPECT_EQ(pencil.getTip(), 0);
     EXPECT_EQ(paper, "an onio  a     keeps the doctor away");
 }
+TEST_F(edit_test, test_editing_in_words_should_do_nothing_if_there_is_no_empty_space){
+    Pencil pencil = Pencil(4);
+    std::string paper ="an apple a day keeps the doctor away";
+    paper = pencil.edit("onion", paper);
+    EXPECT_EQ(paper, "an apple a day keeps the doctor away");
+}
 //TODO: create tests for:
 //degrading tip
 //overwriting characters
