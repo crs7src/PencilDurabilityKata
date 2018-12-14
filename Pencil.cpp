@@ -1,7 +1,6 @@
 //
 // Created by Caleb Smith on 12/1/2018.
 //
-#include <afxres.h>
 #include "Pencil.h"
 
 //create pencil with specified toughnesses and length
