@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Caleb Smith/CLionProjects/PencilDurabilityKata/Pencil.cpp
+afxres.h
+-
+Pencil.h
+C:/Users/Caleb Smith/CLionProjects/PencilDurabilityKata/Pencil.h
+
+C:/Users/Caleb Smith/CLionProjects/PencilDurabilityKata/Pencil.h
+string
+C:/Users/Caleb Smith/CLionProjects/PencilDurabilityKata/string
+stdio.h
+C:/Users/Caleb Smith/CLionProjects/PencilDurabilityKata/stdio.h
+
+C:/Users/Caleb Smith/CLionProjects/PencilDurabilityKata/main.cpp
+iostream
+-
+Pencil.h
+C:/Users/Caleb Smith/CLionProjects/PencilDurabilityKata/Pencil.h
+

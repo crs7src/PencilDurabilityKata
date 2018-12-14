@@ -1,0 +1,12 @@
+C:/Users/Caleb Smith/CLionProjects/PencilDurabilityKata/cmake-build-debug/CMakeFiles/PencilDurabilityKata_run.dir
+C:/Users/Caleb Smith/CLionProjects/PencilDurabilityKata/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Caleb Smith/CLionProjects/PencilDurabilityKata/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Caleb Smith/CLionProjects/PencilDurabilityKata/cmake-build-debug/tests/CMakeFiles/edit_cache.dir
+C:/Users/Caleb Smith/CLionProjects/PencilDurabilityKata/cmake-build-debug/tests/CMakeFiles/rebuild_cache.dir
+C:/Users/Caleb Smith/CLionProjects/PencilDurabilityKata/cmake-build-debug/tests/lib/googletest/CMakeFiles/gtest.dir
+C:/Users/Caleb Smith/CLionProjects/PencilDurabilityKata/cmake-build-debug/tests/lib/googletest/CMakeFiles/gtest_main.dir
+C:/Users/Caleb Smith/CLionProjects/PencilDurabilityKata/cmake-build-debug/tests/lib/googletest/CMakeFiles/edit_cache.dir
+C:/Users/Caleb Smith/CLionProjects/PencilDurabilityKata/cmake-build-debug/tests/lib/googletest/CMakeFiles/rebuild_cache.dir
+C:/Users/Caleb Smith/CLionProjects/PencilDurabilityKata/cmake-build-debug/tests/basic_tests/CMakeFiles/PencilTests.dir
+C:/Users/Caleb Smith/CLionProjects/PencilDurabilityKata/cmake-build-debug/tests/basic_tests/CMakeFiles/edit_cache.dir
+C:/Users/Caleb Smith/CLionProjects/PencilDurabilityKata/cmake-build-debug/tests/basic_tests/CMakeFiles/rebuild_cache.dir

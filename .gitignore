@@ -1,5 +1,4 @@
-cmake*
-*.txt
+!*.txt
 *.xml
 .idea/
 *.py
