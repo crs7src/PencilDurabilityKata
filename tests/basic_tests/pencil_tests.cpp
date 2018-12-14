@@ -212,3 +212,15 @@ TEST_F(edit_test, test_editing_in_letters_that_overlap_should_be_filled_with_at_
     paper = p1.edit("randomized", paper);
     EXPECT_EQ(paper, "a randomi@e@tence");
 }
+TEST_F(edit_test, test_editing_past_the_end_of_the_paper){
+    std::string paper = p1.erase("apple", "an apple a");
+    paper = p1.edit("artichoke", paper);
+    EXPECT_EQ(paper, "an artich@ke");
+}
+TEST_F(edit_test, test_not_overwriting_when_editing_shouldnt_damage_tip){
+    std::string paper = p1.erase("random", "a random sentence");
+    int tipStart = p1.getTip();
+    paper = p1.edit("randomized", paper);
+    EXPECT_EQ(paper, "a randomi@e@tence");
+    EXPECT_EQ(p1.getTip(), tipStart-9);
+}

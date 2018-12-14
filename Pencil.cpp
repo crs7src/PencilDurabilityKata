@@ -69,8 +69,11 @@ std::string Pencil::edit(std::string str, std::string paper){
 //start at locPaper being the first character of edit
 std::string Pencil::replaceOverlapping(std::string edit, std::string paper, int locPaper){
     for (int i = 1; i < edit.length(); ++i) {
-        if(!std::isspace(paper[i+locPaper+1]) && (paper[i+locPaper+1]!=edit[i])){
+        if(!std::isspace(paper[i+locPaper+1]) && (paper[i+locPaper+1]!=edit[i]) && (i+locPaper+1<paper.length())){
             edit[i]='@';
+        }
+        if((paper[i+locPaper+1]==edit[i])){
+            tip++;
         }
     }
     return edit;
