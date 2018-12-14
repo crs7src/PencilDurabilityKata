@@ -32,6 +32,8 @@ private:
     void pointDegradation(std::string str);
     //damage the eraser of the pencil based on the amount erased
     void eraserDegradation(std::string str);
+    //replace overlapping characters with @
+    std::string replaceOverlapping(std::string ,std::string, int);
     int tip;
     int maxTip;
     int eraser;

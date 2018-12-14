@@ -53,6 +53,7 @@ std::string Pencil::edit(std::string str, std::string paper){
     std::size_t empty_space = paper.find("   ");
     if(empty_space!=std::string::npos) {
         pointDegradation(str);
+        str = replaceOverlapping(str, paper, empty_space);
         if (tip < 0) {
             str.erase(str.length() + tip, str.length());
             paper.replace(empty_space + 1, str.length(), str);
@@ -62,6 +63,17 @@ std::string Pencil::edit(std::string str, std::string paper){
         paper.replace(empty_space + 1, str.length(), str);
     }
     return paper;
+}
+
+//replace any overlapping characters of edit that are not the same as the paper with @
+//start at locPaper being the first character of edit
+std::string Pencil::replaceOverlapping(std::string edit, std::string paper, int locPaper){
+    for (int i = 1; i < edit.length(); ++i) {
+        if(!std::isspace(paper[i+locPaper+1]) && (paper[i+locPaper+1]!=edit[i])){
+            edit[i]='@';
+        }
+    }
+    return edit;
 }
 
 int Pencil::getTip() const {
