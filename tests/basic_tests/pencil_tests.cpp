@@ -114,8 +114,7 @@ TEST_F(write_test, test_point_degredation_on_writing) {
     EXPECT_EQ(p1.getTip(), 85);
 }
 TEST_F(write_test, test_pencil_should_not_write_if_toughness_is_0){
-    bool part = 0;
-    Pencil pencil = Pencil(part, 4);
+    Pencil pencil = Pencil(4);
     std::string paper = "";
     std::string text = "test";
     paper = pencil.write(text, paper);
