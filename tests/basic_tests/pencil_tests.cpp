@@ -80,9 +80,13 @@ TEST_F(pencil_test, test_sharpening_when_when_length_is_zero_does_not_reset_tip)
     EXPECT_EQ(pencil.getTip(), 96);
 }
 
-TEST(write_test, test_writing_to_paper){
-    Pencil p1 = Pencil();
-    Pencil p2 = Pencil();
+class write_test : public ::testing::Test{
+protected:
+    Pencil p1;
+    Pencil p2;
+};
+
+TEST_F(write_test, test_writing_to_paper){
     std::string paper = "";
     std::string text = "test";
     std::string paper2 = "";
@@ -92,15 +96,13 @@ TEST(write_test, test_writing_to_paper){
     EXPECT_EQ(paper, text);
     EXPECT_EQ(paper2, text2);
 }
-TEST(write_test, test_adding_to_paper_that_isnt_blank){
-    Pencil p1 = Pencil();
+TEST_F(write_test, test_adding_to_paper_that_isnt_blank){
     std::string paper = "test";
     std::string text = " number 3";
     paper = p1.write(text, paper);
     EXPECT_EQ(paper, "test number 3");
 }
-TEST(write_test, test_point_degredation_on_writing) {
-    Pencil p1 = Pencil();
+TEST_F(write_test, test_point_degredation_on_writing) {
     std::string paper = "";
     std::string text = "test";
     std::string text2 = " degradation";
@@ -111,18 +113,17 @@ TEST(write_test, test_point_degredation_on_writing) {
     paper = p1.write(text2, paper);
     EXPECT_EQ(p1.getTip(), 85);
 }
-TEST(write_test, test_pencil_should_not_write_if_toughness_is_0){
+TEST_F(write_test, test_pencil_should_not_write_if_toughness_is_0){
     bool part = 0;
-    Pencil p1 = Pencil(part, 4);
+    Pencil pencil = Pencil(part, 4);
     std::string paper = "";
     std::string text = "test";
-    paper = p1.write(text, paper);
+    paper = pencil.write(text, paper);
     EXPECT_EQ(paper, text);
-    paper = p1.write(text, paper);
+    paper = pencil.write(text, paper);
     EXPECT_EQ(paper, "test    ");
 }
-TEST(write_test, test_pencil_should_lose_2_tip_toughness_from_capital_letters){
-    Pencil p1 = Pencil();
+TEST_F(write_test, test_pencil_should_lose_2_tip_toughness_from_capital_letters){
     std::string paper = "";
     std::string text = "T";
     std::string text2 = "TEST";
