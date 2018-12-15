@@ -1,15 +1,18 @@
 # PencilDurabilityKata
 A project based on these instructions: https://github.com/PillarTechnology/kata-pencil-durability
 
-# To run
+## Prerequisite
 It was created in C++ and uses cmake to build so cmake needs to be installed before it can be built instructions are here: https://cmake.org/install/.
-To run the tests with cmake installed change directory to /PencilDurabilityKata then run:
+
+## To run
+```
 mkdir build
 cd build
 cmake ..
 cd tests/basic_tests
 make
 ./PencilTests
+```
 
 All the tests will run and the output will be displayed.
 
